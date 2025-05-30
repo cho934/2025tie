@@ -1,3 +1,12 @@
+function runrun () {
+    GO(10)
+    if (color == 1) {
+        kitronik_servo_lite.turnLeft(90)
+    } else {
+        kitronik_servo_lite.turnRight(90)
+    }
+    GO(50)
+}
 // // Fonction pour afficher la position actuelle
 // 
 // function afficherPosition () {
@@ -212,6 +221,10 @@ radio.onReceivedNumber(function (receivedNumber) {
         color = 2
     }
 })
+function StopMotors () {
+    servos.P1.stop()
+    servos.P2.stop()
+}
 function GO (num: number) {
     count = 0
     kitronik_servo_lite.biasDriving(80)
@@ -228,15 +241,6 @@ function GO (num: number) {
         }
     }
 }
-function run () {
-    GO(10)
-    if (color == 1) {
-        kitronik_servo_lite.turnLeft(90)
-    } else {
-        kitronik_servo_lite.turnRight(90)
-    }
-    GO(50)
-}
 function doVL53L1X () {
     distancedetection = VL53L1X.readSingle()
     serial.writeValue("dist", distancedetection)
@@ -249,8 +253,12 @@ function doVL53L1X () {
 input.onButtonPressed(Button.A, function () {
     odometry.reset()
     odometry.setPosition(0, 0, 0)
-    run()
-    kitronik_servo_lite.stop()
+    robotNavigator.setSpeed(100)
+    // Ajout de points
+    robotNavigator.addWaypoint(100, 0)
+    robotNavigator.addWaypoint(100, 100)
+    robotNavigator.addWaypoint(0, 100)
+    robotNavigator.startNavigation()
 })
 function butinuer () {
     ContinuousServo.spin_one_way_with_speed(AnalogPin.P15, 100)
@@ -268,31 +276,34 @@ input.onButtonPressed(Button.B, function () {
     odometry.setPosition(0, 0, 0)
     butinuer()
 })
+function Run (left: number, right: number) {
+    servos.P1.run(0 - left)
+    servos.P2.run(right)
+}
 let rightDelta = 0
 let leftDelta = 0
 let distancedetection = 0
 let motor_stop = 0
 let count = 0
-let color = 0
 let tirette = 0
-let scaledY = 0
-let scaledX = 0
-let angle = 0
-let y = 0
-let x = 0
-let distance = 0
-let angleRad = 0
-let angleDeg = 0
+let color = 0
+let enable_detection = 0
+let start_odo_every = 1
 let debug = 1
 radio.setGroup(169)
 radio.setFrequencyBand(64)
 radio.setTransmitPower(7)
+let scaledY = 0
+let angleDeg = 0
+let angleRad = 0
+let distance = 0
+let x = 0
+let y = 0
+let angle = 0
+let scaledX = 0
 VL53L1X.init()
 VL53L1X.setDistanceMode(VL53L1X.DistanceMode.Short)
 VL53L1X.setMeasurementTimingBudget(50000)
-kitronik_servo_lite.neutral()
-kitronik_servo_lite.setDistancePerSecond(230)
-kitronik_servo_lite.setDegreesPerSecond(100)
 let strip = neopixel.create(DigitalPin.P16, 5, NeoPixelMode.RGB_RGB)
 let range = strip.range(0, 4)
 ContinuousServo.turn_off_motor(DigitalPin.P15)
@@ -327,40 +338,9 @@ basic.showIcon(IconNames.Heart)
 // entraxe 120mm, 200000 ticks/m
 odometry.initialize(120, 200000)
 robotNavigator.useDifferentialMotors()
-robotNavigator.setSpeed(60)
-// Ajout de points
-robotNavigator.addWaypoint(100, 0)
-robotNavigator.addWaypoint(100, 100)
-robotNavigator.addWaypoint(0, 100)
-// Envoi périodique de la position via le port série
-loops.everyInterval(50, function () {
-    let start_odo_every = 0
-    doVL53L1X()
-    // motors.setLeftSpeed(robotNavigator.getLeftMotorSpeed())
-    // motors.setRightSpeed(robotNavigator.getRightMotorSpeed())
-    if (start_odo_every) {
-        encoders.getValues()
-        // Obtenir les deltas des encodeurs
-        leftDelta = encoders.getDeltaLeftValue()
-        rightDelta = encoders.getDeltaRightValue()
-        if (debug) {
-            serial.writeValue("l", encoders.getLeftTotalCount())
-            serial.writeValue("r", encoders.getRightTotalCount())
-        }
-        // Mettre à jour l'odométrie seulement si il y a eu du mouvement
-        if (leftDelta != 0 || rightDelta != 0) {
-            odometry.updateFromTicks(leftDelta, rightDelta)
-            serial.writeLine("POS:" + odometry.getX() + "," + odometry.getY() + "," + odometry.getOrientationDegrees())
-        }
-        // Mise à jour de la position depuis l'odométrie
-        robotNavigator.updatePosition(odometry.getX(), odometry.getY(), odometry.getOrientationDegrees())
-        // Navigation
-        robotNavigator.updateNavigation()
-        // Application des commandes moteur
-        servos.P1.run(robotNavigator.getLeftMotorSpeed())
-        servos.P2.run(robotNavigator.getRightMotorSpeed())
-    }
-})
+robotNavigator.setPositionTolerance(5)
+robotNavigator.setAngleTolerance(1)
+robotNavigator.enableCorrection()
 basic.forever(function () {
     while (tirette == 0) {
         if (color == 1) {
@@ -386,11 +366,39 @@ basic.forever(function () {
     basic.clearScreen()
     basic.showIcon(IconNames.Angry)
     basic.pause(85000)
-    run()
+    // run()
     butinuer()
     // basic.pause(85000)
     tirette = 0
     color = 0
+})
+// Envoi périodique de la position via le port série
+loops.everyInterval(60, function () {
+    if (enable_detection) {
+        doVL53L1X()
+    }
+    // motors.setLeftSpeed(robotNavigator.getLeftMotorSpeed())
+    // motors.setRightSpeed(robotNavigator.getRightMotorSpeed())
+    if (start_odo_every) {
+        encoders.getValues()
+        // Obtenir les deltas des encodeurs
+        leftDelta = encoders.getDeltaLeftValue()
+        rightDelta = encoders.getDeltaRightValue()
+        if (debug) {
+            serial.writeValue("l", encoders.getLeftTotalCount())
+            serial.writeValue("r", encoders.getRightTotalCount())
+        }
+        // Mettre à jour l'odométrie seulement si il y a eu du mouvement
+        if (leftDelta != 0 || rightDelta != 0) {
+            odometry.updateFromTicks(leftDelta, rightDelta)
+            serial.writeLine("POS:" + odometry.getX() + "," + odometry.getY() + "," + odometry.getOrientationDegrees())
+        }
+        // Mise à jour de la position depuis l'odométrie
+        robotNavigator.updatePosition(odometry.getX(), odometry.getY(), odometry.getOrientationDegrees())
+        // Navigation
+        robotNavigator.updateNavigation()
+        Run(robotNavigator.getLeftMotorSpeed(), robotNavigator.getRightMotorSpeed())
+    }
 })
 control.inBackground(function () {
     while (tirette == 0) {
