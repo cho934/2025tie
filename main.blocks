@@ -1,0 +1,204 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="V,z-PB#~]By7|FL#i5!H">tirette</variable><variable id="`.x)zW687:hONB7-S)J7">motor_stop</variable><variable id="hEF2|n,.+J55N0`pmW$B">distancedetection</variable><variable id="zJ`Om|XP`5]+zfjco%3?">color</variable><variable id="$N9[8OfNlplrQu1~8t_m">start_odo_every</variable><variable id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</variable><variable id="XK$W1zW,Gf7tFUU?myK/">leftDelta</variable><variable id="-yzTOm_FG+D%CB(8jA1Q">rightDelta</variable><variable id=":U2cvK-/(YEJ{?D).5`_">debug</variable><variable id="^?I~uRp9xj,-}GcuKv*)">angleDeg</variable><variable id="`@bDz;Sw|{0arHMyyItj">angleRad</variable><variable id="dyF_k3s9(@#-CRhBGWrS">distance</variable><variable id="iPlTh[`PRQ?@UxoO-?2h">x</variable><variable id="/4kcdFW[SskTpIPY6rR6">y</variable><variable id="=RgEDxTk.|vZyatU?6$f">angle</variable><variable id="aN!*{slfFbuVdkLq9+/d">scaledX</variable><variable id="Fwpm(^PY,{dJ9ez+K7OL">scaledY</variable><variable id="G=Stpc7%8m/K|an^Meh|">strip</variable><variable id="a7k6H.1d*C#UuH*y)7iY">range</variable><variable id="W7Ph_5a^,-.hEX:BBbCy">ENTRAXE_MM</variable><variable id="$m^bQ8;xuwTJze2qv!,9">TICKS_PAR_METRE</variable></variables><block type="control_in_background" id="J3_ZKGZkG$nI|ax%%ckA" x="878" y="-50"><statement name="HANDLER"><block type="device_while" id="C:ytL4}73Hd_1#Gc)nBE"><value name="COND"><shadow type="logic_boolean" id="}~TC0Az[7A=~v%xJPnJw"><field name="BOOL">TRUE</field></shadow></value><statement name="DO"><block type="function_call" id="!:e-UN~tQ6._Zfc*6vxU"><mutation name="doVL53L1X" functionid="pxk-O$3u!;^3{}nYJ~o1"></mutation><next><block type="device_pause" id="Hz-R+^!nr^lrh^,!Zi8="><value name="pause"><shadow type="timePicker" id="*@qXqK/}~w2bHd~wCPn~"><field name="ms">50</field></shadow></value></block></next></block></statement></block></statement></block><block type="pxt-on-start" id="b29zgRYHZrqybK~1Q_(0" x="0" y="0"><statement name="HANDLER"><block type="variables_set" id="cVCBrF*f/-/JZV`vlo*1"><field name="VAR" id="^?I~uRp9xj,-}GcuKv*)">angleDeg</field><value name="VALUE"><shadow type="math_number" id="sB.OyBP_hZgL)#0,[YU_"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="|yPMN#77+6h*~qNGc=3j"><field name="VAR" id="`@bDz;Sw|{0arHMyyItj">angleRad</field><value name="VALUE"><shadow type="math_number" id="W:-u26+/pXo8!:p6:[}b"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="E#l5{l5|xhIjD+sWK9Cj"><field name="VAR" id="dyF_k3s9(@#-CRhBGWrS">distance</field><value name="VALUE"><shadow type="math_number" id="N66g(u6E|I,,d4|.^~Qq"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="%f4m,{T=^Q%XfD*ezN~X"><field name="VAR" id="iPlTh[`PRQ?@UxoO-?2h">x</field><value name="VALUE"><shadow type="math_number" id="|gKM#CDa(L^(HX]=^zCW"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="YDi`Vdi;Uv4ZpckMO6A0"><field name="VAR" id="/4kcdFW[SskTpIPY6rR6">y</field><value name="VALUE"><shadow type="math_number" id=";XVsVgLn@F1?q3VB[C.w"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="rREW?TZW@[e5NOcC6j$S"><field name="VAR" id="=RgEDxTk.|vZyatU?6$f">angle</field><value name="VALUE"><shadow type="math_number" id="e[/Ti`:=vl9!g_3skDmu"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="y5D`A~/SBLi/(XI+p*RE"><field name="VAR" id="aN!*{slfFbuVdkLq9+/d">scaledX</field><value name="VALUE"><shadow type="math_number" id="-{|xYj{a%MS?^n3#Z:w{"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="-liPGQ5LAJa*J}f#hs_]"><field name="VAR" id="Fwpm(^PY,{dJ9ez+K7OL">scaledY</field><value name="VALUE"><shadow type="math_number" id="SFfZmW1enmuQE`LUtk:="><field name="NUM">0</field></shadow></value><next><block type="variables_set" id="`w5D@.@CQf/?viCg|b2V"><field name="VAR" id=":U2cvK-/(YEJ{?D).5`_">debug</field><value name="VALUE"><shadow type="math_number" id="KG.B-z%g%HH*POE8iY?M"><field name="NUM">1</field></shadow></value><next><block type="radio_set_group" id="0f-kqi$r.hnvL}w|Y%[b"><value name="ID"><shadow type="math_number_minmax" id="1~xi|nN9rb$9m)))iNA*"><mutation min="0" max="255" precision="0"></mutation><field name="SLIDER">169</field></shadow></value><next><block type="radio_set_frequency_band" id="8/MMX|9UU~d`,_N.w6Z1"><value name="band"><shadow type="math_number_minmax" id="^V*v6y9VS{=r_U(:h;:W"><mutation min="0" max="83" precision="0"></mutation><field name="SLIDER">64</field></shadow></value><next><block type="radio_set_transmit_power" id="GeO~XZU;#:,soi1?8G6#"><value name="power"><shadow type="math_number_minmax" id="]sqoHw]m|{gNO`1~dY47"><mutation min="0" max="7" precision="0"></mutation><field name="SLIDER">7</field></shadow></value><next><block type="VL53L1X_INITIALIZE" id="/)^Y?MVR(,8VtliG9!/~"><next><block type="VL53L1X_SET_DISTANCE_MODE" id="mi0-HH^?,ieaPPNkBWuF"><field name="mode">VL53L1X.DistanceMode.Short</field><next><block type="VL53L1X_SET_TIMING_BUDGET" id="|]GFGw!kyE4,J1KP@as%"><value name="budget_us"><shadow type="math_number_minmax" id="ojKyb)6h]n7*]5cjFOdN"><mutation min="20000" max="1000000" precision="0"></mutation><field name="SLIDER">50000</field></shadow></value><next><block type="kitronik_servolite_servos_neutral" id="N91j7xEv.i$(~vmXakOn"><next><block type="kitronik_servolite_set_movement_speed_param" id="sqp*2nKe.7[mHlbh%qB["><value name="distPerSec"><shadow type="math_number" id="EirVrtiC5Z`#miq7K?b3"><field name="NUM">230</field></shadow></value><next><block type="kitronik_servolite_set_turn_speed_param" id="4B_(yJ-O?n{?=/|qmyZ*"><value name="degPerSec"><shadow type="math_number" id="ec:W6;4UouFRpg6a@[u7"><field name="NUM">100</field></shadow></value><next><block type="variables_set" id="cMe(/GVFjEk|;_[C,Hek"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field><value name="VALUE"><shadow type="math_number" id=")X`~AxG!}-^?f#anq4o;"><field name="NUM">0</field></shadow><block type="neopixel_create" id="HxTqat%]Kq?C7W8k.u(x"><field name="pin">DigitalPin.P16</field><field name="mode">NeoPixelMode.RGB_RGB</field><value name="numleds"><shadow type="math_number" id="izH77H0Cw4_aF3DNZ*}N"><field name="NUM">5</field></shadow></value></block></value><next><block type="variables_set" id="L6`O5Lv%O|MKHIV/CJOf"><field name="VAR" id="a7k6H.1d*C#UuH*y)7iY">range</field><value name="VALUE"><shadow type="math_number" id="rBUyz?(GcFL}Ed!!!Wn]"><field name="NUM">0</field></shadow><block type="neopixel_range" id="mH.)e,01tY.VlI#Z~!(V"><value name="strip"><block type="variables_get" id="(^F;,oBR^WgEB`f?sp03"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field></block></value><value name="start"><shadow type="math_number" id="YOh;|*.HTUn+kkp8+i}w"><field name="NUM">0</field></shadow></value><value name="length"><shadow type="math_number" id="5$ovpD2)FQ1O%ziMOZ^o"><field name="NUM">4</field></shadow></value></block></value><next><block type="turn_off_motor" id=":sHMEn$Cvaf7!f3WVkLD"><field name="pin">DigitalPin.P15</field><next><block type="neopixel_clear" id="6;kO_Y-ObW(~|,tJ#~6I"><value name="strip"><block type="variables_get" id="+c,4=/k4fkc.;KuX`m?|"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field></block></value><next><block type="neopixel_set_strip_color" id="aW+s]g+O$Y_C/L-=sACL"><value name="strip"><block type="variables_get" id="-!yBg,[7Pa7*j*S3%=d]"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field></block></value><value name="rgb"><shadow type="neopixel_colors" id="tF:u;FGpnrjC}gNge$@_"><field name="color">NeoPixelColors.Indigo</field></shadow></value><next><block type="neopixel_show" id="ZZevo4]KLyP]**=((@@s"><value name="strip"><block type="variables_get" id="b]7-gC?e$_RDpZ_%qgx$"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field></block></value><next><block type="device_pause" id="hx$Oq+FtarFFm/SrEV2K"><value name="pause"><shadow type="timePicker" id="E(@`)fAg!=$(~G}KarN7"><field name="ms">500</field></shadow></value><next><block type="neopixel_clear" id="nG=~O.MxN|3^TSNf|3uS"><value name="strip"><block type="variables_get" id="K2R89r4FDPR?MEFq.Wv:"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field></block></value><next><block type="neopixel_show" id="*u4sQ9nex:CZ8obRuuLS"><value name="strip"><block type="variables_get" id="+GD:FjKt0.G;,zWl4E+-"><field name="VAR" id="G=Stpc7%8m/K|an^Meh|">strip</field></block></value><next><block type="basic_show_icon" id="-Z6OzhNnQHapR%^arS4,"><field name="i">IconNames.Square</field><next><block type="variables_set" id="uVx_;f^-6FA4M*BOjFK-"><field name="VAR" id="W7Ph_5a^,-.hEX:BBbCy">ENTRAXE_MM</field><comment pinned="false" h="80" w="160">Configuration du robot
+Distance entre les roues en mm</comment><value name="VALUE"><shadow type="math_number" id="2laHNW6J*gm)SHrcko?b"><field name="NUM">100</field></shadow></value><next><block type="variables_set" id="N^B)-t1j%Z/,Aw?}}n0q"><field name="VAR" id="$m^bQ8;xuwTJze2qv!,9">TICKS_PAR_METRE</field><comment pinned="false" h="80" w="160">Nombre de ticks par mètre</comment><value name="VALUE"><shadow type="math_number" id="CSU.3S#pO_$)=,u~uyXj"><field name="NUM">130000</field></shadow></value><next><block type="variables_set" id="!d5Wj.iOAoQkbtb=|ooC"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field><comment pinned="false" h="80" w="160">Initialisation au démarrage</comment><value name="VALUE"><shadow type="math_number" id=")HkEqEyWI=hDV1*eIZ1b"><field name="NUM">0</field></shadow><block type="as5048b_create_magencoders" id="O[k`Y$1jYGsK{h=WLQYO"><value name="is1EncoderRight"><shadow type="logic_boolean" id="!fhJn(-$HN$MbuBzds^("><field name="BOOL">TRUE</field></shadow></value><value name="invertRight"><shadow type="logic_boolean" id="9O.wnUSOMk~kC?w$}[7R"><field name="BOOL">FALSE</field></shadow></value><value name="invertLeft"><shadow type="logic_boolean" id="ssME:+D*C{TD9I{=5H7["><field name="BOOL">TRUE</field></shadow></value><value name="setsensor1_A1"><shadow type="logic_boolean" id="0Ta`Yq)SdJ;Tnau7dk]2"><field name="BOOL">TRUE</field></shadow></value><value name="setsensor1_A2"><shadow type="logic_boolean" id="=;%,g:mY*6O*L[%W0Ykx"><field name="BOOL">TRUE</field></shadow></value><value name="setsensor2_A1"><shadow type="logic_boolean" id="Jmnrln-71Pb2Lvx:[jbv"><field name="BOOL">TRUE</field></shadow></value><value name="setsensor2_A2"><shadow type="logic_boolean" id="fkR.G!bvX{`iPvThnwXp"><field name="BOOL">FALSE</field></shadow></value></block></value><next><block type="as5048b_magencoders_start" id="I+Bmt)Sc#%qrdm2_3n~z"><value name="encoders"><block type="variables_get" id="b0!sS3C,x*HIYweHqCd*"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field></block></value><next><block type="odometry_initialize" id="%Nu6:5G_kF:l?9PTh6b("><value name="trackWidth"><block type="variables_get" id="OU|s9?AZ+ca2zEhrO-o$"><field name="VAR" id="W7Ph_5a^,-.hEX:BBbCy">ENTRAXE_MM</field></block></value><value name="ticksPerMeter"><block type="variables_get" id="egynM2KZW(cf6H-uA1P)"><field name="VAR" id="$m^bQ8;xuwTJze2qv!,9">TICKS_PAR_METRE</field></block></value><next><block type="odometry_reset" id="eM,_pqC(x.hj`;k@ebJ:"><next><block type="odometry_setPosition" id="9GnT)*5DY}%VMDJ6!hSW"><value name="x"><shadow type="math_number" id="rW{b*r*As7k|)%J6md~)"><field name="NUM">0</field></shadow></value><value name="y"><shadow type="math_number" id="c]fKm.PhT]J9~#TAMYd_"><field name="NUM">0</field></shadow></value><value name="angle"><shadow type="math_number" id="6,/y[+@lIi1Jbywvl$(e"><field name="NUM">0</field></shadow></value><next><block type="basic_show_icon" id="Di]U@K*4N:*}o[,!VXZ?"><field name="i">IconNames.Heart</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="control_in_background" id="gt/-W,T{PGCwdZmp*`+r" x="1144" y="-50"><statement name="HANDLER"><block type="device_while" id="cw^d7F$Su0HPR%iDN|;I"><value name="COND"><shadow type="logic_boolean" id="0TR^PPJByVLKMBBSNtz:"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="bH:C%o5IQ4TSQ~tR`/b:"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="HanEzX|Hkb9t8/aPVwiN"><field name="NUM">0</field></shadow><block type="variables_get" id="rL,y=GXmhLEQ#bXrV|Z%"><field name="VAR" id="V,z-PB#~]By7|FL#i5!H">tirette</field></block></value><value name="B"><shadow type="math_number" id="o/ER{bBwMOS:)Ju|0xPC"><field name="NUM">0</field></shadow></value></block></value><statement name="DO"><block type="device_pause" id="1vZe1lrPPJ?wiHJ)7iU+"><value name="pause"><shadow type="timePicker" id="xy%S.jy`#yxiyNNp(87O"><field name="ms">100</field></shadow></value></block></statement><next><block type="device_pause" id="UO!~$w_EJc2A5nKRC[U@"><value name="pause"><shadow type="timePicker" id="?77_-3f5FFC2BRH,fIY1"><field name="ms">100000</field></shadow></value><next><block type="function_call" id="|/JGd:~0m4yX@UE8Fi(P"><mutation name="butinuer" functionid="ndAOvvFf~KI*OW2[Ngjh"></mutation></block></next></block></next></block></statement></block><block type="device_button_event" id="nmMGIO)1$xtbz_K~|,5j" x="1527" y="-50"><field name="NAME">Button.A</field><statement name="HANDLER"><block type="odometry_reset" id="5Kv?=.basQ%Q/XQyjC^%"><next><block type="odometry_setPosition" id="oiKI#z0:P:?VkZ]D-}`}"><value name="x"><shadow type="math_number" id="3cVX]oC?WiM[{JtI{X!*"><field name="NUM">0</field></shadow></value><value name="y"><shadow type="math_number" id="j=vf@`Wo4u231H^tP*o,"><field name="NUM">0</field></shadow></value><value name="angle"><shadow type="math_number" id="^A]oLwP/;-RP9js:VZ+?"><field name="NUM">0</field></shadow></value><next><block type="function_call" id=",8yIQBw}`Uny4Rsvybac"><mutation name="run" functionid="chK(F1V|(*on{hQv+nrU"></mutation><next><block type="kitronik_servolite_servos_stop" id="SWdwSn7C502f^AIg8v6K"></block></next></block></next></block></next></block></statement></block><block type="device_button_event" id="i|2,IWa7es#8)GCrk#x9" x="1993" y="-50"><field name="NAME">Button.B</field><statement name="HANDLER"><block type="odometry_reset" id="{d6*V[ndF41Z5?u:2T`|"><next><block type="odometry_setPosition" id="z?ZDB^7g/TC)AjvIDAV~"><value name="x"><shadow type="math_number" id="u_k$RCB,n-7p@C;MAlJS"><field name="NUM">0</field></shadow></value><value name="y"><shadow type="math_number" id="=ECctwCG)3O,t,fUZJG["><field name="NUM">0</field></shadow></value><value name="angle"><shadow type="math_number" id="1QI_SFd[|`%Z9rq-E?})"><field name="NUM">0</field></shadow></value></block></next></block></statement></block><block type="device_forever" id="[cj*0Ly3[Co:URgdr-1P" x="2459" y="-50"><statement name="HANDLER"><block type="device_while" id="K(7qVH8jac+WXk%~rs(i"><value name="COND"><shadow type="logic_boolean" id="~}TUbSmvptz@8AG3`]V6"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="b1{Gf^DAWcyPSc$YpN@K"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="EDaeLm3r1_u!1S{~ynT["><field name="NUM">0</field></shadow><block type="variables_get" id="yditLj@RQ[.hSCB0kQ!%"><field name="VAR" id="V,z-PB#~]By7|FL#i5!H">tirette</field></block></value><value name="B"><shadow type="math_number" id="%Ji4uuzNB`gX[c8S+4j7"><field name="NUM">0</field></shadow></value></block></value><statement name="DO"><block type="controls_if" id="fmedl+K~r.5J_JM?N6;Y"><value name="IF0"><shadow type="logic_boolean" id="TZ,@%5(mR.CxY~)tKFh+"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="reJp1%hYVZ[?lkHK2B|K"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="rOE^+~u|N_)5W,pIIPri"><field name="NUM">0</field></shadow><block type="variables_get" id="Yvn0uRjX^[(e]E.62I7P"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field></block></value><value name="B"><shadow type="math_number" id="PT*7:5sa4.KFvB6}q#rZ"><field name="NUM">1</field></shadow></value></block></value><statement name="DO0"><block type="device_clear_display" id="6`vOKW:b/nNJ[tjUCioL"><next><block type="basic_show_icon" id="AkH[Qdg,m8XCTx/nL),H"><field name="i">IconNames.Skull</field></block></next></block></statement><next><block type="controls_if" id="b^~lzzm_-Ld9/;B6yWzk"><value name="IF0"><shadow type="logic_boolean" id="e!y`}G#X8.~-S7odCMN("><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="BF;6mVO6U5jGDU?d`C36"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="oU-#t1}O]]`rEu1.Lk/;"><field name="NUM">0</field></shadow><block type="variables_get" id="$oSi2rh2OrScLWrZ??D("><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field></block></value><value name="B"><shadow type="math_number" id="H^q!`WzEiLwS824~G7(X"><field name="NUM">2</field></shadow></value></block></value><statement name="DO0"><block type="device_clear_display" id="NJotAD+Aqlo8zW%CUeTS"><next><block type="basic_show_icon" id="!riR;W/:3!8I2U|ar*n/"><field name="i">IconNames.Diamond</field></block></next></block></statement><next><block type="controls_if" id="O7U-^X:[7|8M#Nrt}A3j"><value name="IF0"><shadow type="logic_boolean" id="JagT`}1{TS2GQ1O-E(YH"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="uA;I6P_i#W{OCt|VBkUk"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="92}Y0]hz8NRf=u=%~Gba"><field name="NUM">0</field></shadow><block type="variables_get" id="X@RtXnBq,/JetRqS?P9E"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field></block></value><value name="B"><shadow type="math_number" id="51Ml]%/y%wJe@m[gh2;F"><field name="NUM">0</field></shadow></value></block></value><statement name="DO0"><block type="device_clear_display" id="#=eF{YMW;XY/u$Ag]BkU"><next><block type="device_plot_bar_graph" id="Cp-I{P(Pvx^`SleY^/BP"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation><value name="value"><block type="variables_get" id="qzs(?F1K9Wh@GYMe3`pe"><field name="VAR" id="hEF2|n,.+J55N0`pmW$B">distancedetection</field></block></value><value name="high"><shadow type="math_number" id="vYTjaMOgfn@5rA/#GW-Q"><field name="NUM">400</field></shadow></value><value name="valueToConsole"><shadow type="toggleOnOff" id="ec[D9]J$=Z%cG*zhbcHh"><field name="on">false</field></shadow></value></block></next></block></statement><next><block type="device_pause" id="LzGk[5#wv_o6o!t:IT[k"><value name="pause"><shadow type="timePicker" id="`do4Uyops{uo4=}KD|PM"><field name="ms">50</field></shadow></value></block></next></block></next></block></next></block></statement><next><block type="device_clear_display" id="ZQGpHV`|[w{:@U]ELapA"><next><block type="basic_show_icon" id="W^zj$[;+|gMcNhQE7%_Q"><field name="i">IconNames.Angry</field><next><block type="function_call" id="f}2S2Bt7??`Yd_L[BS:T"><mutation name="run" functionid="chK(F1V|(*on{hQv+nrU"></mutation><next><block type="variables_set" id="$jQ:o74UjQyYb.F|*C@|"><field name="VAR" id="V,z-PB#~]By7|FL#i5!H">tirette</field><comment pinned="false" h="80" w="160">basic.pause(85000)</comment><value name="VALUE"><shadow type="math_number" id="IOYD:M/OY}Y^iy^V2-)L"><field name="NUM">0</field></shadow></value><next><block type="variables_set" id=":b-KI-^_XUC;r,~SSx,i"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field><value name="VALUE"><shadow type="math_number" id="d-]hEAe}BT6b#cv#SfR="><field name="NUM">0</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="every_interval" id="HMlV~lXBZr3.S}YLwqPZ" x="2936" y="-50"><comment pinned="false" h="80" w="160">Envoi périodique de la position via le port série</comment><value name="interval"><shadow type="longTimePicker" id="_d,a!+#p}P(9[~VXZ9uy"><field name="ms">50</field></shadow></value><statement name="HANDLER"><block type="controls_if" id=")ZYK?QU@?8NiA).,}5^#"><value name="IF0"><shadow type="logic_boolean" id="[Y#$y^wX2rq*2vgf]dH5"><field name="BOOL">TRUE</field></shadow><block type="variables_get" id="_lDoBtue(Dn!OA5SMt85"><field name="VAR" id="$N9[8OfNlplrQu1~8t_m">start_odo_every</field></block></value><statement name="DO0"><block type="as5048b_magencoders_get_values" id="m(tDdO2p3_b2:e(Uq^e;"><value name="encoders"><block type="variables_get" id="m,w%-mJowo!Ji$15QPC]"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field></block></value><next><block type="variables_set" id="BdKGK+=V9FKAq`#l.Vwy"><field name="VAR" id="XK$W1zW,Gf7tFUU?myK/">leftDelta</field><comment pinned="false" h="80" w="160">Obtenir les deltas des encodeurs</comment><value name="VALUE"><shadow type="math_number" id="4{g{+MV:.#N[]/F7MQGC"><field name="NUM">0</field></shadow><block type="as5048b_magencoders_get_left" id="L9N;bq0Z|*y4pv2/a((q"><value name="encoders"><block type="variables_get" id="@2kHqjkCDQ{)?zciD}|_"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field></block></value></block></value><next><block type="variables_set" id="R5FXhd`^yS2Rs)S,xnW,"><field name="VAR" id="-yzTOm_FG+D%CB(8jA1Q">rightDelta</field><value name="VALUE"><shadow type="math_number" id="p4ds/LM38,-qUH7r]isV"><field name="NUM">0</field></shadow><block type="as5048b_magencoders_get_right" id="%.Yx}eM24}V9B~m{8IR!"><value name="encoders"><block type="variables_get" id="umy0_W+F.QbYb6)/2bw)"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field></block></value></block></value><next><block type="controls_if" id="vGFn2r912*8z66-W#$_R"><value name="IF0"><shadow type="logic_boolean" id="YPY$$R]7?V0OJR^0vQ7m"><field name="BOOL">TRUE</field></shadow><block type="variables_get" id="}=5v:kv85=q?CR7g(#yr"><field name="VAR" id=":U2cvK-/(YEJ{?D).5`_">debug</field></block></value><statement name="DO0"><block type="serial_writevalue" id="bUIA]:RaOb:unpa4fk=q"><value name="name"><shadow type="text" id="@kAQf{j@q0{vLqR[X;J;"><field name="TEXT">l</field></shadow></value><value name="value"><block type="as5048b_magencoders_get_total_left" id="~G5X=VF?_g5-J2a;:{NS"><value name="encoders"><block type="variables_get" id="]v`g@3wj5{W)wg7T-{mi"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field></block></value></block></value><next><block type="serial_writevalue" id="qYLxNuXs5yU8n~x;efar"><value name="name"><shadow type="text" id=")w=)VD[81*P^;D%VUWB["><field name="TEXT">r</field></shadow></value><value name="value"><block type="as5048b_magencoders_get_total_right" id="i!|gvI!|Fb*p|%8=[yqg"><value name="encoders"><block type="variables_get" id="JQ^9,Vq~|]!ZIwrirFBH"><field name="VAR" id="Xs[Q!o0]v3Zcj]sNUZ5a">encoders</field></block></value></block></value></block></next></block></statement><next><block type="controls_if" id="@p|Jv!R@HEu5:CkKEpp}"><comment pinned="false" h="80" w="160">Mettre à jour l'odométrie seulement si il y a eu du mouvement</comment><value name="IF0"><shadow type="logic_boolean" id="zs}fWMSKp{@p]a6rKN!t"><field name="BOOL">TRUE</field></shadow><block type="logic_operation" id="-4KY7aTRPm+1#^SW|6/8"><field name="OP">OR</field><value name="A"><shadow type="logic_boolean" id="NZm#Qh|Md!o6{1H?11-i"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="16z]tC*jN0:D5(_0]%u|"><field name="OP">NEQ</field><value name="A"><shadow type="math_number" id="3A{7.wT;4:a6HZq:;7/1"><field name="NUM">0</field></shadow><block type="variables_get" id="H3W86?nZp3n{:T0O$iu="><field name="VAR" id="XK$W1zW,Gf7tFUU?myK/">leftDelta</field></block></value><value name="B"><shadow type="math_number" id="Y2C;I({-4CU9E]+$CYNL"><field name="NUM">0</field></shadow></value></block></value><value name="B"><shadow type="logic_boolean" id="UsM.*{phc({{v8K]1}!X"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="TwO|s-ENVDs-BT9M%d2t"><field name="OP">NEQ</field><value name="A"><shadow type="math_number" id=".)3rH,BSoXI4kZ~m2}E{"><field name="NUM">0</field></shadow><block type="variables_get" id="j[X8^2OB7gq{{%[zlZ6a"><field name="VAR" id="-yzTOm_FG+D%CB(8jA1Q">rightDelta</field></block></value><value name="B"><shadow type="math_number" id="37E{+5$vr]PMRpGi)0g+"><field name="NUM">0</field></shadow></value></block></value></block></value><statement name="DO0"><block type="odometry_updateFromTicks" id="QBC[~141pXlY4#;cMIb^"><value name="leftDeltaTicks"><block type="variables_get" id="9MgV0q?llqIeAQk;/x_I"><field name="VAR" id="XK$W1zW,Gf7tFUU?myK/">leftDelta</field></block></value><value name="rightDeltaTicks"><block type="variables_get" id="k5CgDsN?|n8MJ=ZS#+JP"><field name="VAR" id="-yzTOm_FG+D%CB(8jA1Q">rightDelta</field></block></value><next><block type="serial_writeline" id="$S@z6wkUaV6;/30Iaf%d"><value name="text"><block type="text_join" id="uh3k7KM+pz$/H-Qiz+m:" inline="false"><mutation items="6"></mutation><value name="ADD0"><shadow type="text" id="()gXaq@zAypW},}{.g%="><field name="TEXT">POS:</field></shadow></value><value name="ADD1"><shadow type="text" id="QXT0kA{Nx~tPG$}_5g7|"><field name="TEXT"></field></shadow><block type="odometry_getX" id="XhR;X5p0^%cm+Bq~%yE^"></block></value><value name="ADD2"><shadow type="text" id="D-XAvU7ZC_Ip7*nk54%d"><field name="TEXT">,</field></shadow></value><value name="ADD3"><shadow type="text" id="Qd1J.RMGXeJV{+3Kh627"><field name="TEXT"></field></shadow><block type="odometry_getY" id="^DHGXJw%Dv~W$YAXy0:H"></block></value><value name="ADD4"><shadow type="text" id="Wp=Aa?qC;_Vo4Y]tQFMz"><field name="TEXT">,</field></shadow></value><value name="ADD5"><shadow type="text" id="nzv5=HYt8)p@6lYbJ~:v"><field name="TEXT"></field></shadow><block type="odometry_getOrientationDegrees" id="H;(,=P~$D]t:6a#A0olt"></block></value></block></value></block></next></block></statement></block></next></block></next></block></next></block></next></block></statement></block></statement></block><block type="function_definition" id="W}H`TV^AsX48qOe^ohRL" x="933" y="2079"><mutation name="run" functionid="chK(F1V|(*on{hQv+nrU"></mutation><field name="function_name">run</field><statement name="STACK"><block type="function_call" id="nD2[!p8C;1]2xG8z?j-1"><mutation name="GO" functionid="$C=R|s|r]EDo$+7b)r%h"><arg name="num" id="4g9xo9dpl7dtcrigtyr2" type="number"></arg></mutation><value name="4g9xo9dpl7dtcrigtyr2"><shadow type="math_number" id="ox)%F@|;,(ndRoPDQ::1"><field name="NUM">200</field></shadow></value></block></statement></block><block type="function_definition" id="cY$kplw#u4Q,_l=L2u:X" x="1146" y="2079"><mutation name="GO" functionid="$C=R|s|r]EDo$+7b)r%h"><arg name="num" id="4g9xo9dpl7dtcrigtyr2" type="number"></arg></mutation><field name="function_name">GO</field><value name="4g9xo9dpl7dtcrigtyr2"><block type="argument_reporter_number" id="@W$pW$wv2o)sz+kwsr@~"><mutation duplicateondrag="true"></mutation><field name="VALUE">num</field></block></value><statement name="STACK"><block type="kitronik_servolite_servos_bias" id="6(K|ij.C^t/SK=AugpI/"><value name="biasDriving"><shadow type="math_number_minmax" id="72NxfwI6~N$~xA+:Su:y"><mutation min="0" max="100" precision="0"></mutation><field name="SLIDER">72</field></shadow></value><next><block type="kitronik_servolite_drive_forwards" id="Eb;:I{@0T$iw@)0[K^E!"><value name="howFar"><block type="argument_reporter_number" id="1slr^;:xz1?5TDTrRy$."><field name="VALUE">num</field></block></value><next><block type="device_while" id="?b(fB9-ZoMMe0lyEYRK:"><value name="COND"><shadow type="logic_boolean" id="JMe~J)X(EwtV$f|q6;6|"><field name="BOOL">TRUE</field></shadow></value><statement name="DO"><block type="controls_if" id="Pele18F:v1,|vAFK3]%5"><value name="IF0"><shadow type="logic_boolean" id="wyR9lI=^[Pmm:V%4XZcR"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id=";.bbOD)xi]gb||wQREpF"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="JGSUS5(Z[6zkQWWqRXT%"><field name="NUM">0</field></shadow><block type="variables_get" id="g6{GyLaIkP5_Z1V8`d{$"><field name="VAR" id="`.x)zW687:hONB7-S)J7">motor_stop</field></block></value><value name="B"><shadow type="math_number" id="$:r%i8hXsI%j7VF_]snX"><field name="NUM">1</field></shadow></value></block></value><statement name="DO0"><block type="kitronik_servolite_servos_stop" id="N2m{))9s{A*T,Xd+?8SQ"><next><block type="break_keyword" id="pY8d@30zzK(Y,9pVCJ^^"></block></next></block></statement><next><block type="device_pause" id="30rFpmHpAB={[KiaXR}y"><value name="pause"><shadow type="timePicker" id="hIxR(gf5D^dxOV5o|:a5"><field name="ms">100</field></shadow></value></block></next></block></statement></block></next></block></next></block></statement></block><block type="function_definition" id="48rjHQ2TcE/PQ1^pG$f1" x="1621" y="2079"><mutation name="butinuer" functionid="ndAOvvFf~KI*OW2[Ngjh"></mutation><field name="function_name">butinuer</field><statement name="STACK"><block type="spin_one_way_with_speed" id="eir]nyP@3xk7=;2p0w|{"><field name="pin">AnalogPin.P15</field><value name="speed"><shadow type="math_number_minmax" id="S--f8qY?HS{0{4ERu0!H"><mutation min="0" max="100" precision="0"></mutation><field name="SLIDER">100</field></shadow></value></block></statement></block><block type="radio_on_number_drag" id=")XdpsLStV6Q7*[CbqEz0" x="-163" y="2173"><comment pinned="false" h="80" w="160">// Fonction pour afficher la position actuelle
+
+function afficherPosition () {
+
+x = Math.round(odometry.getX())
+
+y = Math.round(odometry.getY())
+
+angle = Math.round(odometry.getOrientationDegrees())
+
+basic.clearScreen()
+
+basic.showString("X:" + x)
+
+basic.pause(1000)
+
+basic.showString("Y:" + y)
+
+basic.pause(1000)
+
+basic.showString("A:" + angle)
+
+basic.pause(1000)
+
+}
+
+// Bouton A : Afficher la position actuelle
+
+input.onButtonPressed(Button.A, function () {
+
+afficherPosition()
+
+})
+
+// Boutons A+B : Définir une position de référence
+
+input.onButtonPressed(Button.AB, function () {
+
+// Exemple : définir la position à (1000, 500) avec angle 0
+
+odometry.setPosition(1000, 1000, 0)
+
+basic.showIcon(IconNames.Target)
+
+basic.pause(500)
+
+basic.clearScreen()
+
+})
+
+// Bouton B : Réinitialiser l'odométrie
+
+input.onButtonPressed(Button.B, function () {
+
+odometry.reset()
+
+encoders.stop()
+
+basic.showIcon(IconNames.Yes)
+
+basic.pause(500)
+
+basic.clearScreen()
+
+})
+
+let rightDelta = 0
+
+let leftDelta = 0
+
+let scaledY = 0
+
+let scaledX = 0
+
+let angle = 0
+
+let y = 0
+
+let x = 0
+
+let encoders: MagEncoders.MagEncoders = null
+
+let debug = 0
+
+let distance = 0
+
+let angleRad = 0
+
+let angleDeg = 0
+
+// Configuration du robot
+
+// Distance entre les roues en mm
+
+let ENTRAXE_MM = 100
+
+// Nombre de ticks par mètre
+
+let TICKS_PAR_METRE = 130000
+
+// Initialisation au démarrage
+
+encoders = MagEncoders.createMagEncoder(
+
+true,
+
+false,
+
+true,
+
+true,
+
+true,
+
+true,
+
+false
+
+)
+
+encoders.start()
+
+odometry.initialize(ENTRAXE_MM, TICKS_PAR_METRE)
+
+basic.showIcon(IconNames.Heart)
+
+// ===== COMMUNICATION SÉRIE =====
+
+// Envoi périodique de la position via le port série
+
+loops.everyInterval(1000, function () {
+
+})
+
+// Affichage périodique de la position sur la matrice LED
+
+basic.forever(function () {
+
+// Afficher un point représentant la position du robot
+
+// Mise à l'échelle pour la matrice 5x5
+
+// -2500 à 2500 mm =&gt; 0 à 5
+
+scaledX = Math.round((odometry.getX() + 2500) / 1000)
+
+// -2500 à 2500 mm =&gt; 0 à 5
+
+scaledY = Math.round((odometry.getY() + 2500) / 1000)
+
+// Limiter aux dimensions de la matrice
+
+scaledX = Math.constrain(scaledX, 0, 4)
+
+scaledY = Math.constrain(scaledY, 0, 4)
+
+basic.clearScreen()
+
+// Inverser Y pour avoir Y+ vers le haut
+
+led.plot(scaledX, 4 - scaledY)
+
+basic.pause(100)
+
+})
+
+// ===== COMMUNICATION SÉRIE =====
+
+// Envoi périodique de la position via le port série
+
+loops.everyInterval(100, function () {
+
+encoders.getValues()
+
+// Obtenir les deltas des encodeurs
+
+leftDelta = encoders.getDeltaLeftValue()
+
+rightDelta = encoders.getDeltaRightValue()
+
+if (debug) {
+
+serial.writeValue("l", encoders.getLeftTotalCount())
+
+serial.writeValue("r", encoders.getRightTotalCount())
+
+}
+
+// Mettre à jour l'odométrie seulement si il y a eu du mouvement
+
+if (leftDelta != 0 || rightDelta != 0) {
+
+odometry.updateFromTicks(leftDelta, rightDelta)
+
+serial.writeLine("POS:" + odometry.getX() + "," + odometry.getY() + "," + odometry.getOrientationDegrees())
+
+}
+
+// Pause de 50ms entre chaque mise à jour
+
+basic.pause(50)
+
+})</comment><value name="HANDLER_DRAG_PARAM_receivedNumber"><block type="argument_reporter_number" id="$~9cc8xW~Z8b4^|r-f)}"><mutation duplicateondrag="true"></mutation><field name="VALUE">receivedNumber</field></block></value><statement name="HANDLER"><block type="controls_if" id="7tvgM4.V;eQFhAs4OuRk"><value name="IF0"><shadow type="logic_boolean" id=",NnITy-kOP^{K?VlBKa@"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="TV^oP:DH|5]dK25m6LCJ"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="}kR!lEFDDVha]PK9-F*G"><field name="NUM">0</field></shadow><block type="argument_reporter_number" id="d*Ga/#ilbgO+BtfU=u8y"><field name="VALUE">receivedNumber</field></block></value><value name="B"><shadow type="math_number" id="E#O`r?M)|d4S-h![+CT["><field name="NUM">44</field></shadow></value></block></value><statement name="DO0"><block type="variables_set" id="m*c|9nZ9$vOrbssGpH?*"><field name="VAR" id="V,z-PB#~]By7|FL#i5!H">tirette</field><value name="VALUE"><shadow type="math_number" id="I5Hg)c=d3L~0@Te/:c{k"><field name="NUM">1</field></shadow></value></block></statement><next><block type="controls_if" id="r5%x,Q|S/Dyy8R]6lZVp"><value name="IF0"><shadow type="logic_boolean" id=";HnRG|CsiJ5hi3Gz94M:"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="T$!@Y%w*u[*+ix,52TcS"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="YzXx|O2~L|NXQa4sICu["><field name="NUM">0</field></shadow><block type="argument_reporter_number" id="7L_|f^-_Nnh?c/Cx2./H"><field name="VALUE">receivedNumber</field></block></value><value name="B"><shadow type="math_number" id=";dlthA.+q9!E@3K(n|^h"><field name="NUM">11</field></shadow></value></block></value><statement name="DO0"><block type="variables_set" id="`jSHhG0d$PXKZ,/9s:jQ"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field><value name="VALUE"><shadow type="math_number" id="zRnauS|n4Q[KTcyWXi-)"><field name="NUM">1</field></shadow></value></block></statement><next><block type="controls_if" id="m|~{J*;cM(xiY!!!Wc^^"><value name="IF0"><shadow type="logic_boolean" id="OP.{p?Bm`(=9MGx*~B1X"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="GnnKT);V7(wlvuS,s^Mn"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="m0pTTyBKYpKhin`P2DTj"><field name="NUM">0</field></shadow><block type="argument_reporter_number" id="r^l%_`Wm=o,7QsX9`wJI"><field name="VALUE">receivedNumber</field></block></value><value name="B"><shadow type="math_number" id="X:$+7F~U4?!y7kP9tFh+"><field name="NUM">22</field></shadow></value></block></value><statement name="DO0"><block type="variables_set" id="8|zLhd9hL@,rz-fB+LbB"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field><value name="VALUE"><shadow type="math_number" id="dY#_QA.21mT,bEuUpC-%"><field name="NUM">2</field></shadow></value></block></statement></block></next></block></next></block></statement></block><block type="function_definition" id="K@T,NN^XZ8?3(=L3vL{(" x="2063" y="2079"><mutation name="doVL53L1X" functionid="pxk-O$3u!;^3{}nYJ~o1"></mutation><field name="function_name">doVL53L1X</field><statement name="STACK"><block type="variables_set" id="mKNY)5()+vStx:^P5.9o"><field name="VAR" id="hEF2|n,.+J55N0`pmW$B">distancedetection</field><value name="VALUE"><shadow type="math_number" id="ahf{sa,/w]bweV*ix0FG"><field name="NUM">0</field></shadow><block type="NUMBER_DISTANCE" id=":x0Fvy+f(mCJ`q8_Nbj%"></block></value><next><block type="serial_writevalue" id="Q=3zH(6~`l8:,.9sRNT("><value name="name"><shadow type="text" id="71IW;-)@|SV|)[8rww$`"><field name="TEXT">dist</field></shadow></value><value name="value"><block type="variables_get" id="N{EQ~Wg$PAMb:l89*;+_"><field name="VAR" id="hEF2|n,.+J55N0`pmW$B">distancedetection</field></block></value><next><block type="controls_if" id="dh$V3hu5r9M6g)iGXZ]H"><mutation else="1"></mutation><value name="IF0"><shadow type="logic_boolean" id=")+`!;Lf~ns|@KByu8`Ve"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="1|@hy3Eb|tbDE!txlN7~"><field name="OP">LT</field><value name="A"><shadow type="math_number" id="5,rBh%lhpzp%W|I]1,PE"><field name="NUM">0</field></shadow><block type="variables_get" id="EsGC~z,v)t[0tdb.jkdc"><field name="VAR" id="hEF2|n,.+J55N0`pmW$B">distancedetection</field></block></value><value name="B"><shadow type="math_number" id="]TkMq$szLWXT^h[Lxs*{"><field name="NUM">100</field></shadow></value></block></value><statement name="DO0"><block type="variables_set" id="+LNsyF$DcC;k~xNO[.8d"><field name="VAR" id="`.x)zW687:hONB7-S)J7">motor_stop</field><value name="VALUE"><shadow type="math_number" id="C1{0aB%gL6Zx6Na6~B`c"><field name="NUM">1</field></shadow></value></block></statement><statement name="ELSE"><block type="variables_set" id="CywKC9nD;~5Z^8(5,RIF"><field name="VAR" id="`.x)zW687:hONB7-S)J7">motor_stop</field><value name="VALUE"><shadow type="math_number" id="pS:m3HW2Qh?Y.(R6PYb2"><field name="NUM">0</field></shadow></value></block></statement></block></next></block></next></block></statement></block><block type="radio_on_string_drag" id="uTL@3lPn?VSuw8**S!BJ" x="319" y="2191"><value name="HANDLER_DRAG_PARAM_receivedString"><block type="argument_reporter_string" id="%)IewzbL*mZOL9DJMh_+"><mutation duplicateondrag="true"></mutation><field name="VALUE">receivedString</field></block></value><statement name="HANDLER"><block type="controls_if" id="/Ui,s-r@c92G_agn0-h/"><value name="IF0"><shadow type="logic_boolean" id="E?D/~VDmb`o#):Lj]R/_"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="k3T}V1H-IwkMO4N=aF%j"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="@d%,hBAFLbkIE01R|H{S"><field name="NUM">0</field></shadow><block type="argument_reporter_string" id="Suv$TPq6#kme*##:CEf:"><field name="VALUE">receivedString</field></block></value><value name="B"><shadow type="math_number" id="uN1Uu$e_xB[MvHl8J3|^"><field name="NUM">0</field></shadow><block type="text" id="rw,Um(VaTVIcy0?E`/ie"><field name="TEXT">BLUE</field></block></value></block></value><statement name="DO0"><block type="variables_set" id="m`0Vvp|Q~b:A[+}2,Wz6"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field><value name="VALUE"><shadow type="math_number" id=".=Jm9cj?6Tc|jiKwT_f2"><field name="NUM">2</field></shadow></value></block></statement><next><block type="controls_if" id=")jU}G8CY;j(@+.BwHOiI"><value name="IF0"><shadow type="logic_boolean" id="vPx`r11t#I!X*lK3)eEH"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="97b%u;;A`hwD;u(-vYo|"><field name="OP">EQ</field><value name="A"><shadow type="math_number" id="xRy%BoJZS:EAp2c@xKpZ"><field name="NUM">0</field></shadow><block type="argument_reporter_string" id="*V6!.0|J]thI#+ymcy*V"><field name="VALUE">receivedString</field></block></value><value name="B"><shadow type="math_number" id="5QILOD;v5REPl,BHLl:Q"><field name="NUM">0</field></shadow><block type="text" id="R4_Zx7r?v.]8L[b_E9aS"><field name="TEXT">YELLOW</field></block></value></block></value><statement name="DO0"><block type="variables_set" id="GI5l9NJKui(2,xY;JFFi"><field name="VAR" id="zJ`Om|XP`5]+zfjco%3?">color</field><value name="VALUE"><shadow type="math_number" id="*I}]i:#{5p(2;Nnjen;f"><field name="NUM">1</field></shadow></value></block></statement></block></next></block></statement></block></xml>
