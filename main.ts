@@ -275,14 +275,14 @@ let motor_stop = 0
 let count = 0
 let color = 0
 let tirette = 0
-let angleDeg = 0
-let angleRad = 0
-let distance = 0
-let x = 0
-let y = 0
-let angle = 0
-let scaledX = 0
 let scaledY = 0
+let scaledX = 0
+let angle = 0
+let y = 0
+let x = 0
+let distance = 0
+let angleRad = 0
+let angleDeg = 0
 let debug = 1
 radio.setGroup(169)
 radio.setFrequencyBand(64)
@@ -323,10 +323,21 @@ odometry.initialize(ENTRAXE_MM, TICKS_PAR_METRE)
 odometry.reset()
 odometry.setPosition(0, 0, 0)
 basic.showIcon(IconNames.Heart)
+// Configuration
+// entraxe 120mm, 200000 ticks/m
+odometry.initialize(120, 200000)
+robotNavigator.useDifferentialMotors()
+robotNavigator.setSpeed(60)
+// Ajout de points
+robotNavigator.addWaypoint(100, 0)
+robotNavigator.addWaypoint(100, 100)
+robotNavigator.addWaypoint(0, 100)
 // Envoi périodique de la position via le port série
 loops.everyInterval(50, function () {
     let start_odo_every = 0
     doVL53L1X()
+    // motors.setLeftSpeed(robotNavigator.getLeftMotorSpeed())
+    // motors.setRightSpeed(robotNavigator.getRightMotorSpeed())
     if (start_odo_every) {
         encoders.getValues()
         // Obtenir les deltas des encodeurs
@@ -341,6 +352,13 @@ loops.everyInterval(50, function () {
             odometry.updateFromTicks(leftDelta, rightDelta)
             serial.writeLine("POS:" + odometry.getX() + "," + odometry.getY() + "," + odometry.getOrientationDegrees())
         }
+        // Mise à jour de la position depuis l'odométrie
+        robotNavigator.updatePosition(odometry.getX(), odometry.getY(), odometry.getOrientationDegrees())
+        // Navigation
+        robotNavigator.updateNavigation()
+        // Application des commandes moteur
+        servos.P1.run(robotNavigator.getLeftMotorSpeed())
+        servos.P2.run(robotNavigator.getRightMotorSpeed())
     }
 })
 basic.forever(function () {
@@ -363,6 +381,8 @@ basic.forever(function () {
         }
         basic.pause(50)
     }
+    odometry.reset()
+    odometry.setPosition(0, 0, 0)
     basic.clearScreen()
     basic.showIcon(IconNames.Angry)
     basic.pause(85000)
