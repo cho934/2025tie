@@ -266,6 +266,7 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     odometry.reset()
     odometry.setPosition(0, 0, 0)
+    butinuer()
 })
 let rightDelta = 0
 let leftDelta = 0
@@ -366,6 +367,7 @@ basic.forever(function () {
     basic.showIcon(IconNames.Angry)
     basic.pause(85000)
     run()
+    butinuer()
     // basic.pause(85000)
     tirette = 0
     color = 0
