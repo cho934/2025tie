@@ -213,18 +213,29 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })
 function GO (num: number) {
-    kitronik_servo_lite.biasDriving(72)
-    kitronik_servo_lite.driveForwards(num)
+    count = 0
+    kitronik_servo_lite.biasDriving(80)
     while (true) {
+        basic.pause(100)
         if (motor_stop == 1) {
             kitronik_servo_lite.stop()
+        } else {
+            kitronik_servo_lite.forward()
+        }
+        count = count + 1
+        if (count > num) {
             break;
         }
-        basic.pause(100)
     }
 }
 function run () {
-    GO(200)
+    GO(10)
+    if (color == 1) {
+        kitronik_servo_lite.turnLeft(90)
+    } else {
+        kitronik_servo_lite.turnRight(90)
+    }
+    GO(50)
 }
 function doVL53L1X () {
     distancedetection = VL53L1X.readSingle()
@@ -260,6 +271,7 @@ let rightDelta = 0
 let leftDelta = 0
 let distancedetection = 0
 let motor_stop = 0
+let count = 0
 let color = 0
 let tirette = 0
 let angleDeg = 0
@@ -313,6 +325,7 @@ basic.showIcon(IconNames.Heart)
 // Envoi périodique de la position via le port série
 loops.everyInterval(50, function () {
     let start_odo_every = 0
+    doVL53L1X()
     if (start_odo_every) {
         encoders.getValues()
         // Obtenir les deltas des encodeurs
@@ -351,16 +364,11 @@ basic.forever(function () {
     }
     basic.clearScreen()
     basic.showIcon(IconNames.Angry)
+    basic.pause(85000)
     run()
     // basic.pause(85000)
     tirette = 0
     color = 0
-})
-control.inBackground(function () {
-    while (true) {
-        doVL53L1X()
-        basic.pause(50)
-    }
 })
 control.inBackground(function () {
     while (tirette == 0) {
