@@ -287,20 +287,19 @@ let motor_stop = 0
 let count = 0
 let tirette = 0
 let color = 0
-let enable_detection = 0
+let scaledX = 0
+let angle = 0
+let y = 0
+let x = 0
+let distance = 0
+let angleRad = 0
+let angleDeg = 0
+let scaledY = 0
 let start_odo_every = 1
 let debug = 1
 radio.setGroup(169)
 radio.setFrequencyBand(64)
 radio.setTransmitPower(7)
-let scaledY = 0
-let angleDeg = 0
-let angleRad = 0
-let distance = 0
-let x = 0
-let y = 0
-let angle = 0
-let scaledX = 0
 VL53L1X.init()
 VL53L1X.setDistanceMode(VL53L1X.DistanceMode.Short)
 VL53L1X.setMeasurementTimingBudget(50000)
@@ -374,6 +373,7 @@ basic.forever(function () {
 })
 // Envoi périodique de la position via le port série
 loops.everyInterval(60, function () {
+    let enable_detection = 0
     if (enable_detection) {
         doVL53L1X()
     }
