@@ -7,209 +7,6 @@ function runrun () {
     }
     GO(50)
 }
-// // Fonction pour afficher la position actuelle
-// 
-// function afficherPosition () {
-// 
-// x = Math.round(odometry.getX())
-// 
-// y = Math.round(odometry.getY())
-// 
-// angle = Math.round(odometry.getOrientationDegrees())
-// 
-// basic.clearScreen()
-// 
-// basic.showString("X:" + x)
-// 
-// basic.pause(1000)
-// 
-// basic.showString("Y:" + y)
-// 
-// basic.pause(1000)
-// 
-// basic.showString("A:" + angle)
-// 
-// basic.pause(1000)
-// 
-// }
-// 
-// // Bouton A : Afficher la position actuelle
-// 
-// input.onButtonPressed(Button.A, function () {
-// 
-// afficherPosition()
-// 
-// })
-// 
-// // Boutons A+B : Définir une position de référence
-// 
-// input.onButtonPressed(Button.AB, function () {
-// 
-// // Exemple : définir la position à (1000, 500) avec angle 0
-// 
-// odometry.setPosition(1000, 1000, 0)
-// 
-// basic.showIcon(IconNames.Target)
-// 
-// basic.pause(500)
-// 
-// basic.clearScreen()
-// 
-// })
-// 
-// // Bouton B : Réinitialiser l'odométrie
-// 
-// input.onButtonPressed(Button.B, function () {
-// 
-// odometry.reset()
-// 
-// encoders.stop()
-// 
-// basic.showIcon(IconNames.Yes)
-// 
-// basic.pause(500)
-// 
-// basic.clearScreen()
-// 
-// })
-// 
-// let rightDelta = 0
-// 
-// let leftDelta = 0
-// 
-// let scaledY = 0
-// 
-// let scaledX = 0
-// 
-// let angle = 0
-// 
-// let y = 0
-// 
-// let x = 0
-// 
-// let encoders: MagEncoders.MagEncoders = null
-// 
-// let debug = 0
-// 
-// let distance = 0
-// 
-// let angleRad = 0
-// 
-// let angleDeg = 0
-// 
-// // Configuration du robot
-// 
-// // Distance entre les roues en mm
-// 
-// let ENTRAXE_MM = 100
-// 
-// // Nombre de ticks par mètre
-// 
-// let TICKS_PAR_METRE = 130000
-// 
-// // Initialisation au démarrage
-// 
-// encoders = MagEncoders.createMagEncoder(
-// 
-// true,
-// 
-// false,
-// 
-// true,
-// 
-// true,
-// 
-// true,
-// 
-// true,
-// 
-// false
-// 
-// )
-// 
-// encoders.start()
-// 
-// odometry.initialize(ENTRAXE_MM, TICKS_PAR_METRE)
-// 
-// basic.showIcon(IconNames.Heart)
-// 
-// // ===== COMMUNICATION SÉRIE =====
-// 
-// // Envoi périodique de la position via le port série
-// 
-// loops.everyInterval(1000, function () {
-// 
-// })
-// 
-// // Affichage périodique de la position sur la matrice LED
-// 
-// basic.forever(function () {
-// 
-// // Afficher un point représentant la position du robot
-// 
-// // Mise à l'échelle pour la matrice 5x5
-// 
-// // -2500 à 2500 mm => 0 à 5
-// 
-// scaledX = Math.round((odometry.getX() + 2500) / 1000)
-// 
-// // -2500 à 2500 mm => 0 à 5
-// 
-// scaledY = Math.round((odometry.getY() + 2500) / 1000)
-// 
-// // Limiter aux dimensions de la matrice
-// 
-// scaledX = Math.constrain(scaledX, 0, 4)
-// 
-// scaledY = Math.constrain(scaledY, 0, 4)
-// 
-// basic.clearScreen()
-// 
-// // Inverser Y pour avoir Y+ vers le haut
-// 
-// led.plot(scaledX, 4 - scaledY)
-// 
-// basic.pause(100)
-// 
-// })
-// 
-// // ===== COMMUNICATION SÉRIE =====
-// 
-// // Envoi périodique de la position via le port série
-// 
-// loops.everyInterval(100, function () {
-// 
-// encoders.getValues()
-// 
-// // Obtenir les deltas des encodeurs
-// 
-// leftDelta = encoders.getDeltaLeftValue()
-// 
-// rightDelta = encoders.getDeltaRightValue()
-// 
-// if (debug) {
-// 
-// serial.writeValue("l", encoders.getLeftTotalCount())
-// 
-// serial.writeValue("r", encoders.getRightTotalCount())
-// 
-// }
-// 
-// // Mettre à jour l'odométrie seulement si il y a eu du mouvement
-// 
-// if (leftDelta != 0 || rightDelta != 0) {
-// 
-// odometry.updateFromTicks(leftDelta, rightDelta)
-// 
-// serial.writeLine("POS:" + odometry.getX() + "," + odometry.getY() + "," + odometry.getOrientationDegrees())
-// 
-// }
-// 
-// // Pause de 50ms entre chaque mise à jour
-// 
-// basic.pause(50)
-// 
-// })
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 44) {
         tirette = 1
@@ -241,6 +38,17 @@ function GO (num: number) {
         }
     }
 }
+// Fonction pour ajuster paramètres selon le terrain
+function configureForPrecision () {
+    // Plus lent = plus précis
+    robotNavigator.setSpeed(25)
+    // Tolérance réduite
+    robotNavigator.setPositionTolerance(8)
+    // Angle plus précis
+    robotNavigator.setAngleTolerance(5)
+    // Correction plus forte
+    robotNavigator.setCorrectionGain(0.8)
+}
 function doVL53L1X () {
     distancedetection = VL53L1X.readSingle()
     serial.writeValue("dist", distancedetection)
@@ -260,6 +68,31 @@ input.onButtonPressed(Button.A, function () {
     robotNavigator.addWaypoint(0, 100)
     robotNavigator.startNavigation()
 })
+// Aller à un point spécifique
+function goToPoint (x: number, y: number) {
+    robotNavigator.clearWaypoints()
+    robotNavigator.addWaypoint(x, y)
+    robotNavigator.startNavigation()
+}
+// stopMotors()
+function testMotors () {
+    basic.showString("L")
+    // controlLeftMotor(50)
+    basic.pause(1000)
+    // controlLeftMotor(0)
+    basic.showString("R")
+    // controlRightMotor(50)
+    basic.pause(1000)
+    // controlRightMotor(0)
+    basic.showString("TEST STOP")
+}
+// Reset complet du système
+function resetRobot () {
+    robotNavigator.stopNavigation()
+    odometry.reset()
+    robotNavigator.clearWaypoints()
+    basic.showString("RESET")
+}
 function butinuer () {
     ContinuousServo.spin_one_way_with_speed(AnalogPin.P15, 100)
 }
@@ -279,6 +112,34 @@ input.onButtonPressed(Button.B, function () {
 function Run (left: number, right: number) {
     servos.P1.run(0 - left)
     servos.P2.run(right)
+}
+// Fonction pour créer un parcours personnalisé
+function createCustomPath () {
+    robotNavigator.clearWaypoints()
+    // Parcours en forme de L
+    // Droite 30cm
+    robotNavigator.addWaypoint(300, 0)
+    // Haut 15cm
+    robotNavigator.addWaypoint(300, 150)
+    // Gauche 15cm
+    robotNavigator.addWaypoint(150, 150)
+    // Haut 15cm
+    robotNavigator.addWaypoint(150, 300)
+    // Gauche 15cm
+    robotNavigator.addWaypoint(0, 300)
+    // Retour origine
+    robotNavigator.addWaypoint(0, 0)
+}
+function initnavigator () {
+    robotNavigator.configureYPositionFunc(function () {
+        return odometry.getY()
+    })
+    robotNavigator.configureXPosition(function () {
+        return odometry.getX()
+    })
+    robotNavigator.configureAngleDegPosition(function () {
+        return odometry.getOrientationDegrees()
+    })
 }
 let rightDelta = 0
 let leftDelta = 0
@@ -313,7 +174,7 @@ basic.pause(500)
 strip.clear()
 strip.show()
 basic.showIcon(IconNames.Square)
-// Configuration du robot
+// Configuration de l'odometrie
 // Distance entre les roues en mm
 let ENTRAXE_MM = 100
 // Nombre de ticks par mètre
@@ -333,13 +194,6 @@ odometry.initialize(ENTRAXE_MM, TICKS_PAR_METRE)
 odometry.reset()
 odometry.setPosition(0, 0, 0)
 basic.showIcon(IconNames.Heart)
-// Configuration
-// entraxe 120mm, 200000 ticks/m
-odometry.initialize(120, 200000)
-robotNavigator.useDifferentialMotors()
-robotNavigator.setPositionTolerance(5)
-robotNavigator.setAngleTolerance(1)
-robotNavigator.enableCorrection()
 basic.forever(function () {
     while (tirette == 0) {
         if (color == 1) {
@@ -393,11 +247,6 @@ loops.everyInterval(60, function () {
             odometry.updateFromTicks(leftDelta, rightDelta)
             serial.writeLine("POS:" + odometry.getX() + "," + odometry.getY() + "," + odometry.getOrientationDegrees())
         }
-        // Mise à jour de la position depuis l'odométrie
-        robotNavigator.updatePosition(odometry.getX(), odometry.getY(), odometry.getOrientationDegrees())
-        // Navigation
-        robotNavigator.updateNavigation()
-        Run(robotNavigator.getLeftMotorSpeed(), robotNavigator.getRightMotorSpeed())
     }
 })
 control.inBackground(function () {
